@@ -1,0 +1,81 @@
+Intro to C
+
+pikestyle.pdf
+https://www.cs.princeton.edu/~bwk/tpop.webpage/debugging.html
+
+rm -f *.o a.out
+
+compile & includes
+
+	New 2.inc.c
+	clang -Wall -Werror 1.src.c && a.out
+	clang -Wall -Werror -c 2.mod.c
+	clang -Wall -Werror -c 2.inc.c
+	clang -o a.out 2.inc.o 2.mod.o && a.out
+
+preprocessor
+
+	what to include:
+		man(1), eg exit(3)
+		clang -Wall -Werror 3.cpp.c && a.out
+
+	macros & defines & first print verbs
+		use parens, use with caution
+		clang -Wall -Werror 4.cpp.c && a.out
+
+	#ifdef: DONT
+
+linkage
+	clang -Wall -Werror -c 5.mod.c
+	clang -Wall -Werror -c 5.lnk.c
+	clang -o a.out 5.lnk.o 5.mod.o && a.out
+	nm -n 5.lnk.o 5.mod.o
+	nm -n a.out
+
+	clang -Wall -Werror  6.lnk.c && a.out
+
+style
+	tabs
+	see func()
+	use braces
+	no init when declaring vars
+	no "_" names
+	-1/NULL on errors, follow std ux headers for the same thing
+
+data
+
+	clang -Wall -Werror  7.ints.c && a.out
+
+control
+	note __func__
+	clang -Wall -Werror  8.cntl.c && a.out
+	clang -Wall -Werror  9.enums.c && a.out
+
+
+ptrs
+	clang -Wall -Werror  10.ptrs.c && a.out
+	clang -Wall -Werror  11.arrys.c && a.out
+
+	warnings are errors
+	clang -Wall  12.arrys.c && a.out
+
+	clang -Wall -Werror  13.arrys.c && a.out
+
+strs
+	clang -Wall -Werror  14.strs.c && a.out
+	clang -Wall -Werror  15.strs.c && a.out
+	clang -Wall -Werror  16.strs.c && a.out
+
+types
+	clang -Wall -Werror  17.typs.c && a.out
+	clang -Wall -Werror  18.typs.c && a.out
+
+names
+	clang -Wall -Werror -c 20.names.c
+	clang -Wall -Werror -c 20.main.c
+	clang -o a.out 20.main.o 20.names.o && a.out
+
+hash
+	clang -Wall -Werror -c 19.hash.c
+	clang -Wall -Werror -c 19.main.c
+	clang -o a.out 19.main.o 19.hash.o && a.out hi there fox
